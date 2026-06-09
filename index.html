@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Clement &amp; Co. — A Creative Vision</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --bg: #0a0a0a;
+    --cream: #f5f0e8;
+    --gold: #c9a96e;
+    --maxw: 1280px;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--cream);
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  img, video { display: block; width: 100%; height: auto; }
+
+  /* ---------- Typography ---------- */
+  h1, h2, h3 { font-family: 'Cormorant Garamond', serif; font-weight: 400; letter-spacing: 0.01em; }
+
+  .eyebrow {
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-size: clamp(0.7rem, 1.1vw, 0.85rem);
+    letter-spacing: 0.42em;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+
+  .subhead {
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-size: clamp(0.7rem, 1vw, 0.8rem);
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: var(--cream);
+    opacity: 0.75;
+  }
+
+  /* ---------- Gold separator ---------- */
+  .rule {
+    width: 64px;
+    height: 1px;
+    background: var(--gold);
+    border: 0;
+    margin: 2.4rem auto 0;
+    opacity: 0.85;
+  }
+
+  /* ---------- Sections ---------- */
+  section { padding: clamp(5rem, 12vh, 11rem) clamp(1.25rem, 5vw, 5rem); }
+  .section-inner { max-width: var(--maxw); margin: 0 auto; }
+
+  .section-head { text-align: center; margin-bottom: clamp(3rem, 7vh, 6rem); }
+  .section-head h2 {
+    font-size: clamp(2.8rem, 8vw, 6rem);
+    line-height: 1.02;
+    margin-bottom: 1.1rem;
+  }
+  .section-head .subhead { margin-top: 0.4rem; }
+
+  /* ---------- Hero ---------- */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 2.2rem;
+  }
+  .hero__logo {
+    width: clamp(220px, 38vw, 460px);
+    height: auto;
+    object-fit: contain;
+  }
+  .hero__title {
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-size: clamp(0.72rem, 1.5vw, 1rem);
+    letter-spacing: 0.46em;
+    text-transform: uppercase;
+    color: var(--cream);
+    opacity: 0.92;
+    max-width: 22ch;
+    line-height: 2.4;
+  }
+
+  /* ---------- Vertical (9:16) video column ---------- */
+  .video-col {
+    max-width: 420px;
+    margin: 0 auto clamp(3rem, 6vh, 5rem);
+  }
+  .video-col video {
+    width: 100%;
+    aspect-ratio: 9 / 16;
+    object-fit: cover;
+    border-radius: 2px;
+    background: #000;
+  }
+
+  /* ---------- Product 3-up grid ---------- */
+  .grid-3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: clamp(0.8rem, 2vw, 1.6rem);
+    align-items: center;
+  }
+  .grid-3 figure { width: 100%; }
+  .grid-3 img { object-fit: cover; width: 100%; border-radius: 2px; background: #111; }
+  .ratio-9-16 { aspect-ratio: 9 / 16; }
+  .ratio-4-3  { aspect-ratio: 4 / 3; }
+  .ratio-3-4  { aspect-ratio: 3 / 4; }
+
+  /* ---------- Centred feature image ---------- */
+  .feature {
+    max-width: 800px;
+    margin: clamp(3rem, 6vh, 5rem) auto 0;
+  }
+  .feature img { border-radius: 2px; }
+
+  /* ---------- Two-up ---------- */
+  .two-up {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: clamp(0.8rem, 2vw, 1.6rem);
+    max-width: 800px;
+    margin: clamp(3rem, 6vh, 5rem) auto 0;
+  }
+  .two-up img { aspect-ratio: 4 / 5; object-fit: cover; border-radius: 2px; }
+
+  /* ---------- Editorial full-bleed flush grid ---------- */
+  .editorial-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+  }
+  .editorial-grid img { aspect-ratio: 4 / 5; object-fit: cover; }
+
+  /* ---------- Final Cut AI ---------- */
+  .finalcut { text-align: center; background: #070707; }
+  .finalcut .mark {
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-size: clamp(1rem, 2.4vw, 1.6rem);
+    letter-spacing: 0.5em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 2.4rem;
+  }
+  .finalcut p {
+    max-width: 60ch;
+    margin: 0 auto;
+    font-size: clamp(0.95rem, 1.4vw, 1.1rem);
+    color: var(--cream);
+    opacity: 0.85;
+  }
+  .finalcut .contact {
+    margin-top: 2.4rem;
+    font-size: clamp(0.8rem, 1.2vw, 0.92rem);
+    letter-spacing: 0.18em;
+    color: var(--cream);
+    opacity: 0.7;
+  }
+
+  /* ---------- Reveal on scroll ---------- */
+  .reveal { opacity: 0; transform: translateY(28px); transition: opacity 1.1s ease, transform 1.1s ease; }
+  .reveal.in { opacity: 1; transform: none; }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width: 680px) {
+    .grid-3 { grid-template-columns: 1fr; max-width: 420px; margin-inline: auto; }
+    .grid-3 .ratio-4-3, .grid-3 .ratio-3-4, .grid-3 .ratio-9-16 { aspect-ratio: 4 / 5; }
+    .editorial-grid { grid-template-columns: 1fr; }
+    .two-up { grid-template-columns: 1fr; }
+    .hero__title { line-height: 2.1; }
+  }
+</style>
+</head>
+<body>
+
+  <!-- ===================== SECTION 1 — HERO ===================== -->
+  <section class="hero">
+    <img class="hero__logo" src="https://res.cloudinary.com/de6xku53e/image/upload/v1780995814/Clement_Logos_1.jpg" alt="Clement & Co." />
+    <p class="hero__title">A Creative Vision for Clement &amp; Co.</p>
+    <hr class="rule" />
+  </section>
+
+  <!-- ===================== SECTION 2 — LAYLUNA ===================== -->
+  <section>
+    <div class="section-inner">
+      <div class="section-head reveal">
+        <h2>Layluna</h2>
+        <p class="subhead">The Moissanite Crescent Collection</p>
+      </div>
+
+      <div class="video-col reveal">
+        <video src="https://res.cloudinary.com/de6xku53e/video/upload/v1780995840/Clement_Necklace.mp4"
+               autoplay muted loop playsinline preload="metadata"></video>
+      </div>
+
+      <div class="grid-3 reveal">
+        <figure>
+          <img class="ratio-9-16" loading="lazy"
+               src="https://res.cloudinary.com/de6xku53e/image/upload/v1780995826/Clement_Necklace_Product.jpg"
+               alt="Layluna necklace — red velvet" />
+        </figure>
+        <figure>
+          <img class="ratio-4-3" loading="lazy"
+               src="https://res.cloudinary.com/de6xku53e/image/upload/v1780995831/Clement_Necklace_Product.png"
+               alt="Layluna necklace — black velvet" />
+        </figure>
+        <figure>
+          <img class="ratio-3-4" loading="lazy"
+               src="https://res.cloudinary.com/de6xku53e/image/upload/v1780995823/Clement_Necklace_Product_2.png"
+               alt="Layluna necklace — worn, light strip" />
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== SECTION 3 — VINAYA ===================== -->
+  <section>
+    <div class="section-inner">
+      <div class="section-head reveal">
+        <h2>Vinaya</h2>
+        <p class="subhead">The Marquise Collection</p>
+      </div>
+
+      <div class="video-col reveal">
+        <video src="https://res.cloudinary.com/de6xku53e/video/upload/v1780995874/Clement_Ring.mp4"
+               autoplay muted loop playsinline preload="metadata"></video>
+      </div>
+
+      <div class="grid-3 reveal">
+        <figure>
+          <img class="ratio-3-4" loading="lazy"
+               src="https://res.cloudinary.com/de6xku53e/image/upload/v1780995853/Clement_Ring_Product_1.jpg"
+               alt="Vinaya ring — travertine" />
+        </figure>
+        <figure>
+          <img class="ratio-3-4" loading="lazy"
+               src="https://res.cloudinary.com/de6xku53e/image/upload/v1780995859/Clement_Ring_Product_2.jpg"
+               alt="Vinaya ring — green velvet" />
+        </figure>
+        <figure>
+          <img class="ratio-3-4" loading="lazy"
+               src="https://res.cloudinary.com/de6xku53e/image/upload/v1780995864/Clement_Ring_Product_3.jpg"
+               alt="Vinaya ring — black marble" />
+        </figure>
+      </div>
+
+      <div class="feature reveal">
+        <img loading="lazy"
+             src="https://res.cloudinary.com/de6xku53e/image/upload/v1780995848/Clement_Ring_Burj_Khalifa.png"
+             alt="Vinaya ring — Burj Khalifa" />
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== SECTION 4 — EDITORIAL ===================== -->
+  <section>
+    <div class="section-inner">
+      <div class="section-head reveal">
+        <h2>Editorial</h2>
+      </div>
+    </div>
+
+    <div class="editorial-grid reveal">
+      <img loading="lazy" src="https://res.cloudinary.com/de6xku53e/image/upload/v1780995752/Clement_Boho_Editorial_1.jpg" alt="Boho editorial 1" />
+      <img loading="lazy" src="https://res.cloudinary.com/de6xku53e/image/upload/v1780995758/Clement_Boho_Editorial_2.jpg" alt="Boho editorial 2" />
+      <img loading="lazy" src="https://res.cloudinary.com/de6xku53e/image/upload/v1780995764/Clement_Boho_Editorial_3.jpg" alt="Boho editorial 3" />
+
+      <img loading="lazy" src="https://res.cloudinary.com/de6xku53e/image/upload/v1780995769/Clement_BW_editorial_1.jpg" alt="Black & white editorial 1" />
+      <img loading="lazy" src="https://res.cloudinary.com/de6xku53e/image/upload/v1780995775/Clement_BW_editorial_2.jpg" alt="Black & white editorial 2" />
+      <img loading="lazy" src="https://res.cloudinary.com/de6xku53e/image/upload/v1780995780/Clement_BW_editorial_3.jpg" alt="Black & white editorial 3" />
+
+      <img loading="lazy" src="https://res.cloudinary.com/de6xku53e/image/upload/v1780995798/Clement_Hard_Light_Editorial_1.jpg" alt="Hard light editorial 1" />
+      <img loading="lazy" src="https://res.cloudinary.com/de6xku53e/image/upload/v1780995804/Clement_Hard_Light_Editorial_2.jpg" alt="Hard light editorial 2" />
+      <img loading="lazy" src="https://res.cloudinary.com/de6xku53e/image/upload/v1780995809/Clement_Hard_Light_Editorial_3.jpg" alt="Hard light editorial 3" />
+    </div>
+
+    <div class="section-inner">
+      <div class="two-up reveal">
+        <img loading="lazy" src="https://res.cloudinary.com/de6xku53e/image/upload/v1780995786/Clement_desert_earrings_1.jpg" alt="Desert earrings 1" />
+        <img loading="lazy" src="https://res.cloudinary.com/de6xku53e/image/upload/v1780995793/Clement_desert_earrings_2.jpg" alt="Desert earrings 2" />
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== SECTION 5 — FINAL CUT AI ===================== -->
+  <section class="finalcut">
+    <div class="section-inner reveal">
+      <p class="mark">Final Cut AI</p>
+      <p>Final Cut AI produces campaign-quality visual content for luxury and lifestyle brands using the latest AI generation tools. Every image and video in this deck was produced entirely with artificial intelligence.</p>
+      <p class="contact">Toby Harrison &nbsp;—&nbsp; toby@finalcutai.com &nbsp;—&nbsp; @finalcutai</p>
+      <hr class="rule" />
+    </div>
+  </section>
+
+  <script>
+    // Scroll reveal
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((e) => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach((el) => io.observe(el));
+
+    // Ensure muted autoplay kicks in on mobile browsers
+    document.querySelectorAll('video').forEach((v) => {
+      v.muted = true;
+      const p = v.play();
+      if (p && p.catch) p.catch(() => {});
+    });
+  </script>
+</body>
+</html>
